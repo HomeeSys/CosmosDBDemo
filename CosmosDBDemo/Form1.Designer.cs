@@ -1,6 +1,6 @@
 ﻿namespace CosmosDBDemo
 {
-    partial class Form1
+    partial class CosmosDBForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CosmosDBForm));
             groupBox1 = new GroupBox();
-            ButtonRefresh = new Button();
             ButtonCreate = new Button();
             ButtonClear = new Button();
             LabelCo2 = new Label();
@@ -44,6 +44,7 @@
             Temperature = new DataGridViewTextBoxColumn();
             Humidity = new DataGridViewTextBoxColumn();
             Co2 = new DataGridViewTextBoxColumn();
+            textBox1 = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridView).BeginInit();
@@ -51,7 +52,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(ButtonRefresh);
+            groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(ButtonCreate);
             groupBox1.Controls.Add(ButtonClear);
             groupBox1.Controls.Add(LabelCo2);
@@ -66,16 +67,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Create record";
-            // 
-            // ButtonRefresh
-            // 
-            ButtonRefresh.Location = new Point(6, 397);
-            ButtonRefresh.Name = "ButtonRefresh";
-            ButtonRefresh.Size = new Size(75, 23);
-            ButtonRefresh.TabIndex = 11;
-            ButtonRefresh.Text = "Refresh";
-            ButtonRefresh.UseVisualStyleBackColor = true;
-            ButtonRefresh.Click += ButtonRefresh_Click;
             // 
             // ButtonCreate
             // 
@@ -196,15 +187,28 @@
             Co2.Name = "Co2";
             Co2.ReadOnly = true;
             // 
-            // Form1
+            // textBox1
+            // 
+            textBox1.Location = new Point(6, 354);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(237, 37);
+            textBox1.TabIndex = 11;
+            textBox1.Text = "Press F1 to delete selected measurement.\r\nPress F5 to refresh data set.";
+            // 
+            // CosmosDBForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Name = "Form1";
-            Text = "Form1";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
+            Name = "CosmosDBForm";
+            Text = "CosmosDB Demo";
+            KeyDown += CosmosDBForm_KeyDown;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -225,10 +229,10 @@
         private TextBox TextBoxHumidity;
         private Label LabelTemperature;
         private DataGridView GridView;
-        private Button ButtonRefresh;
         private DataGridViewTextBoxColumn DeviceNumber;
         private DataGridViewTextBoxColumn Temperature;
         private DataGridViewTextBoxColumn Humidity;
         private DataGridViewTextBoxColumn Co2;
+        private TextBox textBox1;
     }
 }
